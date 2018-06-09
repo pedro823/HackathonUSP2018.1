@@ -1,0 +1,2 @@
+class LogStudyRoom < ApplicationRecord
+end
