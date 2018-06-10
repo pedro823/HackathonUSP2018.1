@@ -48,6 +48,14 @@ $(document).ready(() => {
                 sala_header.addClass("red")
               }
 
+              // Desde
+              var change = $("<div>").addClass("attribute").appendTo(sala);
+              var change_row = $("<div>").addClass("row").appendTo(change);
+              var change_col = $("<div>").addClass("col").appendTo(change_row);
+              var change_p = $("<p>").appendTo(change_col);
+              var change_span = $("<span>").text("Desde: ").appendTo(change_p);
+              change_p.append(parseDate(room.last_change));
+
               // Capacity
               var capacity = $("<div>").addClass("attribute").appendTo(sala);
               var capacity_row = $("<div>").addClass("row").appendTo(capacity);
@@ -94,6 +102,14 @@ $(document).ready(() => {
           sala_header.addClass("red")
         }
 
+        // Desde
+        var change = $("<div>").addClass("attribute").appendTo(sala);
+        var change_row = $("<div>").addClass("row").appendTo(change);
+        var change_col = $("<div>").addClass("col").appendTo(change_row);
+        var change_p = $("<p>").appendTo(change_col);
+        var change_span = $("<span>").text("Desde: ").appendTo(change_p);
+        change_p.append(parseDate(room.last_change));
+
         // Capacity
         var capacity = $("<div>").addClass("attribute").appendTo(sala);
         var capacity_row = $("<div>").addClass("row").appendTo(capacity);
@@ -104,7 +120,14 @@ $(document).ready(() => {
       }
     })
     return loop;
-  }(), 3000);
+  }(), 4000);
+
+  function parseDate(datetime) {
+    return datetime.substring(11, 16) + " (" +
+           datetime.substring(8, 10) + "/" +
+           datetime.substring(5, 7) + "/" +
+           datetime.substring(0, 4) + ")";
+  }
 
   function modal(room) {
     $('#modal-title').text(room.name);
@@ -118,7 +141,9 @@ $(document).ready(() => {
     $.get('/peak-hours/'+room.id, (data) => {
       probs = data.probabilities;
       console.log(probs);
-
+      for (i = 0; i < probs.length; i++) {
+        probs[i] *= 100;
+      }
       var prob_labels = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00",
                          "06:00", "07:00", "08:00", "09:00", "10:00", "11:00",
                          "12:00", "13:00", "14:00", "15:00", "16:00", "17:00",
@@ -130,7 +155,7 @@ $(document).ready(() => {
         data: {
           labels: prob_labels,
           datasets: [{
-            label: 'Probabilidade de a sala estar livre',
+            label: 'Probabilidade de a sala estar livre (%)',
             data: probs,
             backgroundColor: '#673AB7',
             borderColor: '#512DA8',

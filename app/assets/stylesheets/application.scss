@@ -189,20 +189,22 @@ span {
 #modal {
   font-weight: 400;
   .modal-header {
+    background: $primary-color;
     padding: 0;
+    h5 {
+      color: $white;
+    }
   }
   .modal-title {
     margin: 12px 0 12px 19px;
   }
   .modal-body {
-    height: 500px;
     padding: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
   }
   .btn-modal {
     background-color: $darker-color;
     height: 32px;
+    margin: 2px;
     padding-top: 8px;
     box-shadow: none;
     &.cancel {
@@ -245,8 +247,8 @@ span {
     font-weight: 500;
   }
 }
-.pico {
-  margin: 0 8px;
+.prob {
+  margin: 16px;
 }
 
 
