@@ -74,6 +74,7 @@ class ApiController < ApplicationController
   end
 
   def plan_study
+    # Ranks the room most probable to be empty at that time
     if (time = params[:time]) == nil
       bad_request('Missing required param: time')
     end
@@ -90,7 +91,7 @@ class ApiController < ApplicationController
       }
     end
     all_rooms.sort! do |a, b|
-      a[:probability] <=> b[:probability]
+      b[:probability] <=> a[:probability]
     end
     result = {
       rooms: []
@@ -107,6 +108,7 @@ class ApiController < ApplicationController
   end
 
   def plan_single
+    # Asks if a single room would be full in that time
     id = params[:id]
     time = params[:time]
     if id == nil || time == nil
@@ -124,6 +126,25 @@ class ApiController < ApplicationController
     probability = calculate_free_probability(study_room, time_of_day)
     result = {
       probability: probability
+    }
+    render json: result.to_json
+  end
+
+  def peak_hours
+    id = params[:id]
+    unless StudyRoom.exists?(id)
+      not_found("Study Room with id #{id} not found") and return
+    end
+    study_room = StudyRoom.find(id)
+    histogram = []
+    (0...24).each do |hour|
+      time = "#{hour}:00"
+      time_of_day = convert_time(time)
+      histogram << calculate_free_probability(study_room, time_of_day).round(4)
+    end
+    result = {
+      range: 'hourly',
+      probabilities: histogram
     }
     render json: result.to_json
   end
