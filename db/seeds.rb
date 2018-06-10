@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# User.create(name:"Teste", email:"teste@teste.teste", password:"asdasdasd")
+Location.create([{
+    id: 1,
+    name: 'Campus capital'
+  },
+])
+
+Institution.create([{
+  id: 1,
+  name: 'Instituto de matemática e estatística',
+  location_id: 1
+}
+])
+
+StudyRoom.create([{
+  name: 'Sala IME 01',
+  institution_id: 1,
+  fits_number: 5,
+  is_free: true
+}])
