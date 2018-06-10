@@ -36,7 +36,12 @@ class ApiController < ApplicationController
   end
 
   def set_study_room
-    body = JSON.parse(request.body.read)
+    begin
+      body = JSON.parse(request.body.read)
+    rescue => e
+      puts e.to_s
+      bad_request(e.to_s)
+    end
     if (free = body['free']) == nil or (id = body['id']) == nil
       bad_request('missing arguments: be sure free and id are in the body') and return
     end
