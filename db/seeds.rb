@@ -68,13 +68,13 @@ StudyRoom.create([{
     name: 'Sala IME 03',
     institution_id: 1,
     fits_number: 5,
-    is_free: true
+    is_free: false
   },
   {
     name: 'Sala IME 04',
     institution_id: 1,
     fits_number: 5,
-    is_free: true
+    is_free: false
   },
   {
     name: 'Sala IME 05',
