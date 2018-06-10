@@ -2,134 +2,186 @@
 /******************************************************************************
  *                              HackathonUSP2018                              *
  ******************************************************************************/
- @import "base/global.scss";
+@import "base/global.scss";
 
- html, body {
-   background: $light-grey;
-   -webkit-tap-highlight-color: rgba(0,0,0,0);
- }
+html, body {
+  background: $light-grey;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 
- ::selection {
-   background: $primary-color;
-   color: $white;
- }
- ::-moz-selection {
-   background: $primary-color;
-   color: $white;
- }
+::selection {
+  background: $primary-color;
+  color: $white;
+}
+::-moz-selection {
+  background: $primary-color;
+  color: $white;
+}
 
- .form-control:focus {
-   border-color: $lighter-color;
-   box-shadow: none;
- }
+.form-control:focus {
+  border-color: $lighter-color;
+  box-shadow: none;
+}
 
- a {
-   color: $primary-color;
- }
- a:hover {
-   color: $darker-color;
- }
+a {
+  color: $primary-color;
+}
+a:hover {
+  color: $darker-color;
+}
 
- h1, h2, h3, h4, h5, h6 {
-   color: $primary-color;
-   font-weight: 400;
- }
+h1, h2, h3, h4, h5, h6 {
+  color: $primary-color;
+  font-weight: 400;
+}
 
- /******************************************************************************
-  * Header                                                                     *
-  ******************************************************************************/
- .mdl-layout__drawer-button {
-   margin: 3px 0 0 8px !important;
- }
- .logo-image {
-   height: 32px;
-   margin: 0 -1px 0 -20px;
- }
- .header-title {
-   color: $white;
-   font-size: 24px;
-   margin-left: 16px;
- }
- .mdl-layout__header {
-   background: $primary-color;
- }
+/******************************************************************************
+ * Header                                                                     *
+ ******************************************************************************/
+.mdl-layout__drawer-button {
+  margin: 3px 0 0 8px !important;
+}
+.logo-image {
+  height: 32px;
+  margin: 0 -1px 0 -20px;
+}
+.header-title {
+  color: $white;
+  font-size: 24px;
+  margin-left: 16px;
+}
+.mdl-layout__header {
+  background: $primary-color;
+}
 
- /******************************************************************************
-  * Drawer                                                                     *
-  ******************************************************************************/
- .mdl-layout__drawer {
-   background: $light-grey;
-   border: none;
- }
- .drawer-header {
-   background: $primary-color;
-   height: 128px;
-   text-align: center;
-   img {
-     background: $white;
-     height: 64px;
-     margin: 19px 0 8px 0;
-     border-radius: 50%;
-   }
-   p {
-     color: $white;
-     font-size: 16px;
-   }
- }
- .mdl-navigation {
-   background: $white;
-   padding: 0 !important;
- }
- .mdl-navigation__link {
-   padding: 16px !important;
-   i {
-     margin-right: 15px;
-   }
-   &.sub {
-     padding: 8px 16px 8px 59px !important;
-   }
-   &.active {
-     color: $primary-color !important;
-     border-left: 4px solid $primary-color;
-   }
- }
+/******************************************************************************
+ * Drawer                                                                     *
+ ******************************************************************************/
+.mdl-layout__drawer {
+  background: $light-grey;
+  border: none;
+}
+.drawer-header {
+  background: $primary-color;
+  height: 128px;
+  text-align: center;
+  img {
+    background: $white;
+    height: 64px;
+    margin: 19px 0 8px 0;
+    border-radius: 50%;
+  }
+  p {
+    color: $white;
+    font-size: 16px;
+  }
+}
+.mdl-navigation {
+  background: $white;
+  padding: 0 !important;
+}
+.mdl-navigation__link {
+  padding: 16px !important;
+  i {
+    margin-right: 15px;
+  }
+  &.sub {
+    padding: 8px 16px 8px 59px !important;
+  }
+  &.active {
+    color: $primary-color !important;
+    border-left: 4px solid $primary-color;
+  }
+}
 
- /******************************************************************************
-  * Content                                                                    *
-  ******************************************************************************/
- main {
-   padding: 30px;
- }
+/******************************************************************************
+ * Content                                                                    *
+ ******************************************************************************/
+main {
+  padding: 30px;
+}
 
- /******************************************************************************
-  * Footer                                                                     *
-  ******************************************************************************/
- footer a {
-   color: $white !important;
-   transition: color 0.2s;
-   margin-left: 240px;
-   @media screen and (max-width: 1024px) {
-     margin-left: 0;
-   }
- }
- footer a:hover {
-   color: $darker-color !important;
- }
- .footer-copyright {
-   height: 32px;
-   padding-top: 6px;
- }
+/******************************************************************************
+ * Footer                                                                     *
+ ******************************************************************************/
+footer a {
+  color: $white !important;
+  transition: color 0.2s;
+  margin-left: 240px;
+  @media screen and (max-width: 1024px) {
+    margin-left: 0;
+  }
+}
+footer a:hover {
+  color: $darker-color !important;
+}
+.footer-copyright {
+  height: 32px;
+  padding-top: 6px;
+}
 
- /******************************************************************************
-  * Search                                                                     *
-  ******************************************************************************/
-  .page-title {
-    color: $primary-color;
+/******************************************************************************
+ * Search                                                                     *
+ ******************************************************************************/
+.page-title {
+  color: $primary-color;
+  margin: 0 0 8px 0;
+  font-size: 32px;
+  line-height: 32px;
+}
+.page-subtitle {
+  color: $darker-color;
+  margin: 0;
+  font-size: 28px;
+}
+span {
+  color: $primary-color;
+}
+.salas-container {
+  margin: 31px 0 -22px;
+  padding: 0 0 0 2px;
+  text-align: center;
+}
+.sala {
+  width: 256px;
+  margin: 0 32px 32px 0;
+  vertical-align: top;
+  display: inline-block;
+  cursor: pointer;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
+}
+.sala-header {
+  background: $green;
+  color: $white;
+  height: 32px;
+  font-size: 24px;
+  margin: 0 0 16px 0;
+  padding: 5px 0 0 0;
+  border-radius: 2px 2px 0 0;
+  text-align: center;
+  p {
     margin: 0;
-    font-size: 32px;
   }
-  span {
-    color: $primary-color;
+  &.red {
+    background: $error-color;
   }
+}
+.attribute {
+  margin: 0 16px 16px 16px;
+  text-align: center;
+  .row {
+    width: 100%;
+    margin: 0;
+  }
+  .col {
+    padding: 0;
+  }
+  p {
+    margin: 0;
+  }
+}
+
 
  /******************************************************************************/
