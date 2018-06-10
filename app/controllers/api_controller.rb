@@ -106,6 +106,27 @@ class ApiController < ApplicationController
     render json: result.to_json
   end
 
+  def plan_single
+    id = params[:id]
+    time = params[:time]
+    if id == nil || time == nil
+      bad_request('Missing required parameter') and return
+    end
+    unless StudyRoom.exists?(id)
+      not_found("Study Room with id #{id} not found") and return
+    end
+    begin
+      time_of_day = convert_time(time)
+    rescue ArgumentError => e
+      bad_request(e.to_s) and return
+    end
+    study_room = StudyRoom.find(id)
+    probability = calculate_free_probability(study_room, time_of_day)
+    result = {
+      probability: probability
+    }
+    render json: result.to_json
+  end
 
   private
 
