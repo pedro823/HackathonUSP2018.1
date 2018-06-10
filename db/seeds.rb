@@ -49,7 +49,55 @@ Institution.create([
     name: 'Escola Politécnica',
     tag: 'Poli',
     location_id: 1
-  }
+  },
+  {
+    id: 3,
+    name: 'Instituto de Matemática e Estatística',
+    tag: 'IME',
+    location_id: 1
+  },
+  {
+    id: 4,
+    name: 'Faculdade de Economia, Administração e Contabilidade',
+    tag: 'FEA',
+    location_id: 1
+  },
+  {
+    id: 5,
+    name: 'Faculdade de Filosofia, Letras e Ciências Humanas',
+    tag: 'FFLCH',
+    location_id: 1
+  },
+  {
+    id: 6,
+    name: 'Escola de Comunicações e Artes',
+    tag: 'ECA',
+    location_id: 1
+  },
+  {
+    id: 7,
+    name: 'Instituto de Matemática e Estatística',
+    tag: 'IME',
+    location_id: 1
+  },
+  {
+    id: 8,
+    name: 'Instituto de Química',
+    tag: 'IQ',
+    location_id: 1
+  },
+  {
+    id: 9,
+    name: 'Faculdade de Medicina Veterinária e Zootecnia',
+    tag: 'FMVZ',
+    location_id: 1
+  },
+  {
+    id: 10,
+    name: 'Instituto de Biociências',
+    tag: 'IB',
+    location_id: 1
+  },
 ])
 
 StudyRoom.create([{
@@ -112,7 +160,30 @@ StudyRoom.create([{
     fits_number: 6,
     is_free: false
   },
-
+  {
+    name: 'FEA Sala 01',
+    institution_id: 2,
+    fits_number: 8,
+    is_free: false
+  },
+  {
+    name: 'FEA Sala 02',
+    institution_id: 2,
+    fits_number: 4,
+    is_free: false
+  },
+  {
+    name: 'FEA Sala 03',
+    institution_id: 2,
+    fits_number: 4,
+    is_free: false
+  },
+  {
+    name: 'FEA Sala 04',
+    institution_id: 2,
+    fits_number: 4,
+    is_free: false
+  },
 ])
 
 LogStudyRoom.create([
