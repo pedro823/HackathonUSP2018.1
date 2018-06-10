@@ -28,10 +28,17 @@ class ApiController < ApplicationController
       :study_rooms => []
     }
     StudyRoom.joins(:institution).where(:institution_id => id).each do |i|
+      # N + 1 'cause fuckkkk
+      last_time = LogStudyRoom.where(study_room_id: i.id).order(created_at: :desc).first
+      if last_time
+        last_time = last_time.created_at
+      end
       rooms[:study_rooms] << {
+        :id => i.id,
         :name => i.name,
         :fits_people => i.fits_number,
-        :is_free => i.is_free
+        :is_free => i.is_free,
+        :last_change => last_time
       }
     end
     render json: rooms.to_json
