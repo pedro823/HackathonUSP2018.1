@@ -6,22 +6,111 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # User.create(name:"Teste", email:"teste@teste.teste", password:"asdasdasd")
-Location.create([{
+Location.create([
+  {
     id: 1,
     name: 'Campus capital'
   },
+  {
+    id: 2,
+    name: 'Campus Bauru'
+  },
+  {
+    id: 3,
+    name: 'Campus Ribeirão Preto'
+  },
+  {
+    id: 4,
+    name: 'Campus São Carlos'
+  },
+  {
+    id: 5,
+    name: 'Campus Leste (EACH)'
+  },
+  {
+    id: 6,
+    name: 'Campus Pirassununga'
+  },
+  {
+    id: 7,
+    name: 'Campus Lorena'
+  }
 ])
 
-Institution.create([{
-  id: 1,
-  name: 'Instituto de matemática e estatística',
-  location_id: 1
-}
+Institution.create([
+  {
+    id: 1,
+    name: 'Instituto de matemática e estatística',
+    tag: 'IME',
+    location_id: 1
+  },
+  {
+    id: 2,
+    name: 'Escola Politécnica',
+    tag: 'Poli',
+    location_id: 1
+  }
 ])
 
 StudyRoom.create([{
-  name: 'Sala IME 01',
-  institution_id: 1,
-  fits_number: 5,
-  is_free: true
-}])
+    name: 'Sala IME 01',
+    institution_id: 1,
+    fits_number: 5,
+    is_free: true
+  },
+  {
+    name: 'Sala IME 02',
+    institution_id: 1,
+    fits_number: 5,
+    is_free: true
+  },
+  {
+    name: 'Sala IME 03',
+    institution_id: 1,
+    fits_number: 5,
+    is_free: true
+  },
+  {
+    name: 'Sala IME 04',
+    institution_id: 1,
+    fits_number: 5,
+    is_free: true
+  },
+  {
+    name: 'Sala IME 05',
+    institution_id: 1,
+    fits_number: 10,
+    is_free: true
+  },
+  {
+    name: 'Sala IME 06',
+    institution_id: 1,
+    fits_number: 10,
+    is_free: true
+  },
+  {
+    name: 'Elétrica sala 01',
+    institution_id: 2,
+    fits_number: 4,
+    is_free: true
+  },
+  {
+    name: 'Elétrica sala 02',
+    institution_id: 2,
+    fits_number: 4,
+    is_free: true
+  },
+  {
+    name: 'Elétrica sala 03',
+    institution_id: 2,
+    fits_number: 6,
+    is_free: true
+  },
+  {
+    name: 'Elétrica sala 04',
+    institution_id: 2,
+    fits_number: 6,
+    is_free: false
+  },
+
+])

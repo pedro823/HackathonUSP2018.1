@@ -18,7 +18,7 @@ class ApiController < ApplicationController
   def institution
     id = params[:id]
     unless Institution.exists?(id)
-      not_found("A instituição não existe!")
+      not_found("A instituição não existe!") and return
     end
     rooms = {
       :study_rooms => []
@@ -59,6 +59,7 @@ class ApiController < ApplicationController
   end
 
   def plan_study
+
   end
 
 
