@@ -1,1 +1,123 @@
 @import "material";
+/******************************************************************************
+ *                              HackathonUSP2018                              *
+ ******************************************************************************/
+ @import "base/global.scss";
+
+ html, body {
+   background: $light-grey;
+   -webkit-tap-highlight-color: rgba(0,0,0,0);
+ }
+
+ ::selection {
+   background: $primary-color;
+   color: $white;
+ }
+ ::-moz-selection {
+   background: $primary-color;
+   color: $white;
+ }
+
+ .form-control:focus {
+   border-color: $lighter-color;
+   box-shadow: none;
+ }
+
+ a {
+   color: $primary-color;
+ }
+ a:hover {
+   color: $darker-color;
+ }
+
+ h1, h2, h3, h4, h5, h6 {
+   color: $primary-color;
+   font-weight: 400;
+ }
+
+ /******************************************************************************
+  * Header                                                                     *
+  ******************************************************************************/
+ .mdl-layout__drawer-button {
+   margin: 3px 0 0 8px !important;
+ }
+ .logo-image {
+   height: 32px;
+   margin: 0 -1px 0 -20px;
+ }
+ .header-title {
+   color: $white;
+   font-size: 24px;
+   margin-left: 16px;
+ }
+ .mdl-layout__header {
+   background: $primary-color;
+ }
+
+ /******************************************************************************
+  * Drawer                                                                     *
+  ******************************************************************************/
+ .mdl-layout__drawer {
+   background: $light-grey;
+   border: none;
+ }
+ .drawer-header {
+   background: $primary-color;
+   height: 128px;
+   text-align: center;
+   img {
+     background: $white;
+     height: 64px;
+     margin: 19px 0 8px 0;
+     border-radius: 50%;
+   }
+   p {
+     color: $white;
+     font-size: 16px;
+   }
+ }
+ .mdl-navigation {
+   background: $white;
+   padding: 0 !important;
+ }
+ .mdl-navigation__link {
+   padding: 16px !important;
+   i {
+     margin-right: 15px;
+   }
+   &.sub {
+     padding: 8px 16px 8px 59px !important;
+   }
+   &.active {
+     color: $primary-color !important;
+     border-left: 4px solid $primary-color;
+   }
+ }
+
+ /******************************************************************************
+  * Content                                                                    *
+  ******************************************************************************/
+ main {
+   padding: 30px;
+ }
+
+ /******************************************************************************
+  * Footer                                                                     *
+  ******************************************************************************/
+ footer a {
+   color: $white !important;
+   transition: color 0.2s;
+   margin-left: 240px;
+   @media screen and (max-width: 1024px) {
+     margin-left: 0;
+   }
+ }
+ footer a:hover {
+   color: $darker-color !important;
+ }
+ .footer-copyright {
+   height: 32px;
+   padding-top: 6px;
+ }
+
+ /******************************************************************************/
