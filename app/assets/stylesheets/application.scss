@@ -183,5 +183,71 @@ span {
   }
 }
 
+/******************************************************************************
+ * Modal                                                                      *
+ ******************************************************************************/
+#modal {
+  font-weight: 400;
+  .modal-header {
+    padding: 0;
+  }
+  .modal-title {
+    margin: 12px 0 12px 19px;
+  }
+  .modal-body {
+    height: 500px;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .btn-modal {
+    background-color: $darker-color;
+    height: 32px;
+    padding-top: 8px;
+    box-shadow: none;
+    &.cancel {
+      background-color: $dark-grey;
+    }
+  }
+}
+.search-bar-container {
+  background: $darker-color;
+  height: 64px;
+  width: 100%;
+  padding: 16px 16px 0 16px;
+  position: relative;
+  .search-bar {
+    background: $white;
+    height: 32px;
+    width: 100%;
+    padding-bottom: -5px;
+    padding-left: calc(50% - 32px);
+    border-radius: 16px;
+    font-size: 16px;
+  }
+  label {
+    color: $dark-grey;
+    position: absolute;
+    top: 23px;
+    left: 26px;
+  }
+}
+.probabilidade {
+  height: 64px;
+  margin: 27px 8px 64px 8px;
+  text-align: center;
+  button {
+    background: $darker-color;
+    margin-bottom: 24px;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+.pico {
+  margin: 0 8px;
+}
+
 
  /******************************************************************************/

@@ -9,7 +9,7 @@ $(document).ready(() => {
     for (i = 0; i < data.institutions.length; i++) {
       let institute = data.institutions[i];
       var link = $('<a>',{
-        text: institute.name,
+        text: institute.tag,
         id: "institute"+institute.id,
         class: "mdl-navigation__link",
         href: "#",
@@ -26,14 +26,14 @@ $(document).ready(() => {
             container = $('#salas-container');
             container.empty();
             for (i = 0; i < data.study_rooms.length; i++) {
-              room = data.study_rooms[i];
+              let room = data.study_rooms[i];
               // Name
               var sala = $("<div>").addClass("sala card").appendTo(container);
               var sala_header = $("<div>").addClass("sala-header").appendTo(sala);
               var sala_header_p = $("<p>").text(room.name).appendTo(sala_header);
-              // sala.click(function(){
-              //   console.log(room.name);
-              // });
+              sala.click(function(){
+                modal(room);
+              });
 
               // Status
               var status = $("<div>").addClass("attribute").appendTo(sala);
@@ -63,6 +63,7 @@ $(document).ready(() => {
     }
   })
 
+  //  Loop
   setInterval(function loop() {
     $('#page-title').text(name);
     $.get('/institutions/'+id, (data) => {
@@ -71,11 +72,14 @@ $(document).ready(() => {
       container = $('#salas-container');
       container.empty();
       for (i = 0; i < data.study_rooms.length; i++) {
-        room = data.study_rooms[i];
+        let room = data.study_rooms[i];
         // Name
         var sala = $("<div>").addClass("sala card").appendTo(container);
         var sala_header = $("<div>").addClass("sala-header").appendTo(sala);
         var sala_header_p = $("<p>").text(room.name).appendTo(sala_header);
+        sala.click(function(){
+          modal(room);
+        });
 
         // Status
         var status = $("<div>").addClass("attribute").appendTo(sala);
@@ -100,6 +104,55 @@ $(document).ready(() => {
       }
     })
     return loop;
-  }(), 5000);
+  }(), 3000);
+
+  function modal(room) {
+    $('#modal-title').text(room.name);
+
+    chart(room);
+
+    $('#modal').modal('show')
+  }
+
+  function chart(room) {
+    $.get('/peak-hours/'+room.id, (data) => {
+      probs = data.probabilities;
+      console.log(probs);
+
+      var prob_labels = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00",
+                         "06:00", "07:00", "08:00", "09:00", "10:00", "11:00",
+                         "12:00", "13:00", "14:00", "15:00", "16:00", "17:00",
+                         "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"];
+
+      var ctxB = document.getElementById("barChart").getContext('2d');
+      var myBarChart = new Chart(ctxB, {
+        type: 'bar',
+        data: {
+          labels: prob_labels,
+          datasets: [{
+            label: 'Probabilidade de a sala estar livre',
+            data: probs,
+            backgroundColor: '#673AB7',
+            borderColor: '#512DA8',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero:true
+              }
+            }]
+          }
+        }
+      });//
+    })
+
+
+
+
+
+  }
 
 })
