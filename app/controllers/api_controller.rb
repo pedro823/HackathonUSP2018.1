@@ -54,9 +54,18 @@ class ApiController < ApplicationController
     study_room = StudyRoom.find(id)
     study_room.is_free = free
     if study_room.save
+      # Creates log
+      log = LogStudyRoom.new(
+        study_room_id: study_room.id,
+        taken: free,
+        time_of_day: convert_time(Time.now.to_s),
+      )
+      logged = log.save
+
       result = {
         success: true,
-        new_state: free
+        new_state: free,
+        logged: logged
       }
       render json: result.to_json and return
     else
