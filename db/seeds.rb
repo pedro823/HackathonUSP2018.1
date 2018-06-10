@@ -40,7 +40,7 @@ Location.create([
 Institution.create([
   {
     id: 1,
-    name: 'Instituto de matemática e estatística',
+    name: 'Instituto de Matemática e Estatística',
     tag: 'IME',
     location_id: 1
   },
@@ -113,4 +113,30 @@ StudyRoom.create([{
     is_free: false
   },
 
+])
+
+LogStudyRoom.create([
+  {
+    study_room_id: 1,
+    taken: true,
+    time_of_day: 43200, # 12:00
+    created_at: 30.days.ago
+  },
+  {
+    study_room_id: 1,
+    taken: false,
+    time_of_day: 47200, # 13:06
+    created_at: 30.days.ago
+  },
+  {
+    study_room_id: 1,
+    taken: true,
+    time_of_day: 50000, # 13:06
+    created_at: 29.days.ago
+  },
+  {
+    study_room_id: 1,
+    taken: false,
+    time_of_day: 54230 # 15:05
+  },
 ])
