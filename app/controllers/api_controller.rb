@@ -1,6 +1,8 @@
 class ApiController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  include ApiHelper
+
   def all_institutions
     all = {
       :institutions => []
@@ -35,7 +37,6 @@ class ApiController < ApplicationController
 
   def set_study_room
     body = JSON.parse(request.body.read)
-    puts body
     if (free = body['free']) == nil or (id = body['id']) == nil
       bad_request('missing arguments: be sure free and id are in the body') and return
     end
@@ -59,7 +60,36 @@ class ApiController < ApplicationController
   end
 
   def plan_study
-
+    if (time = params[:time]) == nil
+      bad_request('Missing required param: time')
+    end
+    begin
+      time_of_day = convert_time(time)
+    rescue ArgumentError => e
+      bad_request(e.to_s) and return
+    end
+    all_rooms = []
+    StudyRoom.joins(:institution).each do |i|
+      all_rooms << {
+        study_room: i,
+        probability: calculate_free_probability(i, time_of_day)
+      }
+    end
+    all_rooms.sort! do |a, b|
+      a[:probability] <=> b[:probability]
+    end
+    result = {
+      rooms: []
+    }
+    all_rooms.each do |i|
+      result[:rooms] << {
+        room_name: i[:study_room].name,
+        intitution_name: i[:study_room].institution.name,
+        fits_people: i[:study_room].fits_number,
+        probability: i[:probability]
+      }
+    end
+    render json: result.to_json
   end
 
 
