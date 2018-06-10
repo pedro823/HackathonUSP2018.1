@@ -123,7 +123,8 @@ $(document).ready(() => {
   }(), 4000);
 
   function parseDate(datetime) {
-    return datetime.substring(11, 16) + " (" +
+    return parseInt(datetime.substring(11, 13)-3).pad(2) + ":" +
+           datetime.substring(14, 16) + " (" +
            datetime.substring(8, 10) + "/" +
            datetime.substring(5, 7) + "/" +
            datetime.substring(0, 4) + ")";
@@ -178,6 +179,12 @@ $(document).ready(() => {
 
 
 
+  }
+
+  Number.prototype.pad = function(size) {
+    var s = String(this);
+    while (s.length < (size || 2)) {s = "0" + s;}
+    return s;
   }
 
 })
