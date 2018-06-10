@@ -11,6 +11,8 @@ class ApiController < ApplicationController
       all[:institutions] << {
         :id => i.id,
         :name => i.name,
+        :tag => i.tag,
+        :address => i.address,
         :location => i.location.name
       }
     end

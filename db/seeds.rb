@@ -137,6 +137,7 @@ LogStudyRoom.create([
   {
     study_room_id: 1,
     taken: false,
-    time_of_day: 54230 # 15:05
+    time_of_day: 54230, # 15:05
+    created_at: 29.days.ago
   },
 ])
