@@ -1,8 +1,8 @@
-1200.times do
+800.times do
   days_ago = rand(1..60)
-  time_begin = rand(0..72000)
+  time_begin = rand(23000..72000)
   study_room_id = rand(1..6)
-  time_end = time_begin + rand(14400)
+  time_end = (time_begin + rand(14400) * time_begin.to_f / 72000).to_i
   LogStudyRoom.create(
     study_room_id: study_room_id,
     taken: true,
